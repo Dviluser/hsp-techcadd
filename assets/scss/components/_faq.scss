@@ -1,0 +1,162 @@
+/* faq css */
+
+/* faq-project group style  */
+.faq-project-group {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 30px;
+}
+
+.faq-project-group-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #0E143D;
+    z-index: -1;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* faq area style  */
+.faq-area-inner {
+    display: grid;
+    gap: 40px 60px;
+    grid-template-columns: 1fr 622px;
+    align-items: center;
+
+    @media #{$lg} {
+        grid-template-columns: 1fr 512px;
+
+    }
+
+    @media #{$md} {
+        grid-template-columns: 1fr;
+    }
+}
+
+.faq-thumb-wrapper {
+    width: 100%;
+    max-width: 670px;
+    aspect-ratio: 100/80;
+    overflow: hidden;
+    position: relative;
+}
+
+.faq-thumb-1 {
+    width: 69%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+.faq-thumb-2 {
+    width: 47%;
+    height: 66%;
+    border: 5px solid var(--white);
+    border-radius: 40px;
+    position: absolute;
+    right: 15px;
+    overflow: hidden;
+    top: 22%;
+    transform: rotate(5deg);
+
+    @media #{$lg} {
+        border-width: 3px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.faq-content {
+
+    .title-wrapper {
+        margin-top: 19px;
+    }
+
+    .section-title {
+        color: var(--white);
+    }
+}
+
+.faq-accordion {
+    margin-top: 49px;
+
+    .accordion {
+        display: grid;
+        gap: 20px;
+    }
+
+    .accordion-item {
+        border-radius: 10px;
+        overflow: hidden;
+        border: none;
+        background-color: var(--white);
+    }
+
+    .accordion-button {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--black);
+        line-height: 22px;
+        padding: 16px 30px;
+        background-color: var(--white);
+        box-shadow: none;
+
+        @media #{$sm} {
+            padding: 16px 15px;
+        }
+
+        &:not(.collapsed) {
+            background-color: var(--theme);
+            color: var(--white);
+
+            &::after {
+                color: var(--white);
+            }
+        }
+
+        &::after {
+            background-image: none;
+            content: "\f107";
+            font-family: var(--font_awesome);
+            color: var(--black);
+            font-size: 16px;
+        }
+
+    }
+
+
+    .accordion-body {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        color: var(--secondary);
+        padding: 23px 30px 24px;
+
+        @media #{$sm} {
+            padding: 23px 15px 24px;
+
+        }
+    }
+}

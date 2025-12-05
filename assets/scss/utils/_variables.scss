@@ -1,0 +1,83 @@
+/*-----------------------------------------------------------------------------------
+
+  Theme Name: Synvo - IT Service HTML Template
+  Author: rrdevs
+  Support: https://support.rrdevs.net/
+  Description: 
+  Version: 1.0.1
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+/* variable css */
+/* typography css */
+/* animation css */
+/* common css */
+/* theme css */
+/* preloader css */
+/* scroll css */
+/* button css */
+/* menu css */
+/* modal css */
+/* header css */
+/* footer css */
+/* hero css */
+/* about css */
+/* service css */
+/* project css */
+/* pricing css */
+/* progress css */
+/* testimonial css */
+/* process css */
+/* appointment css */
+/* team css */
+/* blog css */
+/* counter css */
+/* cta css */
+/* feature css */
+/* faq css */
+/* text-slider css */
+/* story css */
+/* brand css */
+/* breadcrumb css */
+/* newsletter css */
+/* contact css */
+/* error css */
+
+
+
+/* variable css */
+// Colors
+:root {
+  --primary: #1C1C25;
+  --secondary: #797E88;
+  --border: #E5E5E5;
+  --theme: #6421FF;
+
+  --black: #1C1C25;
+  --black-2: #4f5259;
+
+  --white: #FFFFFF;
+  --white-2: #A7ACB5;
+
+  --action: #6421FF;
+}
+
+
+// Responsive Variable
+$xxxl: 'only screen and (min-width: 1920px)';
+$xxl: 'only screen and (max-width: 1919px)';
+$xl: 'only screen and (max-width: 1399px)';
+$lg: 'only screen and (max-width: 1199px)';
+$md: 'only screen and (max-width: 991px)';
+$sm: 'only screen and (max-width: 767px)';
+$xs: '(max-width: 575px)';
+
+
+// Responsive Variable for container
+$cxxl: '(width > 1919px)';
+$cxl: '(width > 1399px)';
+$clg: '(width > 1199px)';
+$cmd: '(width > 991px)';
+$csm: '(width > 767px)';
+$cxs: '(width > 575px)';

@@ -1,0 +1,141 @@
+/* breadcrumb css */
+/* breadcrumb area style  */
+.breadcrumb-area {
+    margin-top: 155px;
+    padding: 40px 40px 0;
+
+    @media #{$xxl} {
+        margin-top: 135px;
+        padding: 20px 20px 0;
+    }
+
+    @media #{$lg} {
+        margin-top: 125px;
+        padding: 10px 10px 0;
+    }
+
+    @media #{$xs} {
+        margin-top: 80px;
+
+    }
+}
+
+.breadcrumb-area-inner {
+    border: 10px solid var(--white);
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    @media #{$lg} {
+        border-width: 5px;
+        border-radius: 20px;
+    }
+}
+
+
+
+.breadcrumb-bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(270deg, rgba(5, 9, 26, 0) 0%, rgba(18, 7, 77, 0.95) 100%);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+.breadcrumb-content {
+    padding-top: 173px;
+    padding-bottom: 191px;
+
+    @media #{$xxl} {
+        padding-top: 133px;
+        padding-bottom: 151px;
+        padding-left: 80px;
+    }
+
+    @media #{$lg} {
+        padding-top: 103px;
+        padding-bottom: 121px;
+        padding-left: 60px;
+    }
+
+    @media #{$xs} {
+        padding-left: 0;
+    }
+
+    .breadcrumb-title {
+        font-weight: 600;
+        font-size: 54px;
+        line-height: 1.35;
+        color: var(--white);
+
+        @media #{$xxl} {
+            font-size: 50px;
+        }
+
+        @media #{$lg} {
+            font-size: 46px;
+        }
+
+        @media #{$sm} {
+            font-size: 44px;
+        }
+
+        @media #{$xs} {
+            font-size: 34px;
+        }
+    }
+}
+
+.rr-breadcrumb {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    padding: 12px 30px;
+    list-style: none;
+    backdrop-filter: blur(80px);
+    display: inline-flex;
+    margin-top: 23px;
+
+    li {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 600;
+        color: var(--white);
+
+        +li:before {
+            padding: 0 7px;
+            color: var(--white);
+
+            content: "/\00a0";
+        }
+
+        a {
+            color: var(--white);
+            text-decoration: none;
+
+            &:hover {
+                color: var(--white-2);
+            }
+        }
+    }
+}

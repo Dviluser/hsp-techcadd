@@ -1,0 +1,53 @@
+/* error css */
+/* error area style  */
+.error-content {
+    text-align: center;
+
+    .thumb {
+        img {
+            width: 910px;
+
+            @media #{$xxl} {
+                width: 700px;
+            }
+
+            @media #{$lg} {
+                width: 650px;
+            }
+
+            @media #{$md} {
+                width: 550px;
+            }
+
+            @media #{$sm} {
+                width: 450px;
+            }
+        }
+    }
+
+    .title-wrapper {
+        margin-top: 69px;
+
+        @media #{$lg} {
+            margin-top: 49px;
+        }
+    }
+
+    .text-wrapper {
+        margin-top: 12px;
+    }
+
+    .text {
+        font-size: 20px;
+        line-height: 28px;
+
+        @media #{$lg} {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+    .btn-wrapper {
+        margin-top: 34px;
+    }
+}

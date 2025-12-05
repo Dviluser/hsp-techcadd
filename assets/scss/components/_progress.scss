@@ -1,0 +1,120 @@
+/* progress css */
+/* progress area style  */
+.progress-area-inner {
+    display: grid;
+    gap: 40px 60px;
+    grid-template-columns: 1fr 600px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media #{$md} {
+        grid-template-columns: 1fr;
+    }
+}
+
+.progress-thumb-wrappper {
+    max-width: 640px;
+    position: relative;
+    aspect-ratio: 100 / 87;
+
+    .progress-thumb-1 {
+        width: 47%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 30px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .progress-thumb-2 {
+        width: 47%;
+        position: absolute;
+        top: 46px;
+        right: 0;
+        border-radius: 30px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .progress-thumb-3 {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 30px;
+        overflow: hidden;
+        border: 3px solid var(--white);
+        filter: drop-shadow(0px 6px 45px rgba(27, 30, 41, 0.22));
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.progress-content {
+    .title-wrapper {
+        margin-top: 19px;
+    }
+
+    .text-wrapper {
+        margin-top: 32px;
+    }
+
+
+}
+
+.progress-wrapper-box {
+    margin-top: 29px;
+}
+
+.progress-wrapper {
+    display: grid;
+    gap: 26px;
+}
+
+
+.progress-box {
+    .progress-title {
+        display: flex;
+        justify-content: space-between;
+
+
+        span {
+            float: right;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19px;
+            color: var(--black);
+        }
+    }
+
+    .progress-category {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19px;
+        display: inline-block;
+        margin-bottom: 11px;
+    }
+
+    .progress {
+        height: 16px;
+        background-color: var(--white);
+        border-radius: 10px;
+        border: 1px solid #D5E0F5;
+        padding: 4px;
+    }
+
+    .progress-bar {
+        background-color: var(--theme);
+        border-radius: 10px;
+    }
+}
