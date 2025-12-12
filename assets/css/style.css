@@ -15983,328 +15983,280 @@ section {
 
 
 /* Internal CSS for navigation changes */
-          .header-nav .main-menu>ul>li.menu-item-has-children>a {
-            position: relative;
-            transition: all 0.3s ease;
-          }
+         .header-nav .main-menu>ul>li.menu-item-has-children>a {
+    position: relative;
+    transition: all 0.3s ease;
+}
 
-          .header-nav .main-menu>ul>li.menu-item-has-children>a:after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-left: 8px;
-            font-size: 12px;
-            transition: transform 0.3s ease;
-          }
+.header-nav .main-menu>ul>li.menu-item-has-children>a:after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-left: 8px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
 
-          /* Smooth dropdown animation */
-          .header-nav .main-menu ul .dp-menu {
-            animation: fadeInDown 0.3s ease forwards;
-            opacity: 0;
-            transform: translateY(-10px);
-          }
+/* Smooth dropdown animation */
+.header-nav .main-menu ul .dp-menu {
+    animation: fadeInDown 0.3s ease forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+}
 
-          @keyframes fadeInDown {
-            to {
-              opacity: 1;
-              transform: translateY(20px);
-            }
-          }
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(20px);
+    }
+}
 
-          /* Courses dropdown grid */
-          .courses-dropdown {
-            position: absolute;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 30px;
-            min-width: 800px;
-            left: -150%;
-            transform: translateY(10%);
-            z-index: 1000;
-            display: none;
-          }
+/* Courses dropdown grid */
+.courses-dropdown {
+    position: absolute;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    min-width: 1500px;
+    left: -150%;
+    transform: translateY(10%);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-          /* After 12th dropdown - single column */
-          .after-12th-dropdown {
-            position: absolute;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 30px;
-            min-width: 300px;
-            left: -50%;
-            transform: translateY(10%);
-            z-index: 1000;
-            display: none;
-          }
+/* After 12th dropdown - single column */
+.after-12th-dropdown {
+    position: absolute;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    min-width: 300px;
+    left: -50%;
+    transform: translateY(10%);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-          /* Internship & Trainings dropdown - single column */
-          .internship-dropdown {
-            position: absolute;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 30px;
-            min-width: 300px;
-            left: 0%;
-            transform: translateY(15%);
-            z-index: 1000;
-            display: none;
-          }
+/* Internship & Trainings dropdown - single column */
+.internship-dropdown {
+    position: absolute;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    min-width: 300px;
+    left: 0%;
+    transform: translateY(15%);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-          .courses-dropdown.active,
-          .after-12th-dropdown.active,
-          .internship-dropdown.active {
-            display: block;
-            animation: fadeInDown 0.3s ease forwards;
-          }
+/* Active dropdown state */
+.courses-dropdown.active,
+.after-12th-dropdown.active,
+.internship-dropdown.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
 
-          .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-          }
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
 
-          /* After 12th single column layout */
-          .after-12th-content,
-          .internship-content {
-            width: 100%;
-          }
+/* After 12th single column layout */
+.after-12th-content,
+.internship-content {
+    width: 100%;
+}
 
-          .course-column h4,
-          .after-12th-content h4,
-          .internship-content h4 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eaeaea;
-          }
+.course-column h4,
+.after-12th-content h4,
+.internship-content h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
 
-          .course-column ul,
-          .after-12th-content ul,
-          .internship-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          }
+.course-column ul,
+.after-12th-content ul,
+.internship-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-          .course-column ul li,
-          .after-12th-content ul li,
-          .internship-content ul li {
-            margin-bottom: 10px;
-          }
+.course-column ul li,
+.after-12th-content ul li,
+.internship-content ul li {
+    margin-bottom: 10px;
+}
 
-          .course-column ul li a,
-          .after-12th-content ul li a,
-          .internship-content ul li a {
-            color: #666;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 5px 0;
-          }
+.course-column ul li a,
+.after-12th-content ul li a,
+.internship-content ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px 0;
+}
 
-          .course-column ul li a:hover,
-          .after-12th-content ul li a:hover,
-          .internship-content ul li a:hover {
-            color: var(--white);
-            transform: translateX(5px);
-          }
+.course-column ul li a:hover,
+.after-12th-content ul li a:hover,
+.internship-content ul li a:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
 
-          /* Hover functionality for desktop */
-          @media (min-width: 993px) {
+/* Hover functionality for desktop */
+@media (min-width: 993px) {
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .courses-dropdown,
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .after-12th-dropdown,
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .internship-dropdown {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .courses-dropdown,
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .after-12th-dropdown,
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .internship-dropdown {
-              display: block;
-              animation: fadeInDown 0.3s ease forwards;
-            }
+    /* Hide the toggle button indicator on wide screens */
+    .header-nav .main-menu>ul>li.menu-item-has-children>a:after {
+        display: none;
+    }
 
-            /* Hide the toggle button indicator on wide screens */
-            .header-nav .main-menu>ul>li.menu-item-has-children>a:after {
-              display: none;
-            }
+    /* Hide canvas button on desktop */
+    .header-offfcanvas {
+        display: none;
+    }
+}
 
-            /* Hide canvas button on desktop */
-            .header-offfcanvas {
-              display: none;
-            }
-          }
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .courses-dropdown {
+        min-width: 700px;
+        left: 0;
+        transform: translateX(0);
+    }
 
-          /* Book Now button styles */
-          .book-now-btn {
-            background: linear-gradient(45deg, var(--theme-color), rgb(193, 22, 228));
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
-            position: relative;
-            overflow: hidden;
-          }
+    .after-12th-dropdown,
+    .internship-dropdown {
+        min-width: 250px;
+        left: 0;
+        transform: translateX(0);
+    }
 
-          .book-now-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(38, 170, 247, 0.432);
-          }
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-          .book-now-btn:active {
-            transform: translateY(-1px);
-          }
+@media (max-width: 992px) {
+    /* Show canvas button on mobile */
+    .header-offfcanvas {
+        display: block;
+    }
 
-          .book-now-btn:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-          }
+    /* Show toggle button indicator on mobile */
+    .header-nav .main-menu>ul>li.menu-item-has-children>a:after {
+        display: inline-block;
+    }
 
-          .book-now-btn:hover:before {
-            width: 300px;
-            height: 300px;
-          }
+    /* Remove hover effects on mobile */
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .courses-dropdown,
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .after-12th-dropdown,
+    .header-nav .main-menu>ul>li.menu-item-has-children:hover .internship-dropdown {
+        display: none;
+    }
 
-          /* Responsive styles */
-          @media (max-width: 1200px) {
-            .courses-dropdown {
-              min-width: 700px;
-              left: 0;
-              transform: translateX(0);
-            }
+    .courses-dropdown,
+    .after-12th-dropdown,
+    .internship-dropdown {
+        position: static;
+        min-width: auto;
+        width: 100%;
+        padding: 20px;
+    }
 
-            .after-12th-dropdown,
-            .internship-dropdown {
-              min-width: 250px;
-              left: 0;
-              transform: translateX(0);
-            }
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
 
-            .courses-grid {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
+    .header-cta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
 
-          @media (max-width: 992px) {
+@media (max-width: 768px) {
+    .courses-dropdown,
+    .after-12th-dropdown,
+    .internship-dropdown {
+        position: static;
+        min-width: auto;
+        width: 100%;
+        padding: 20px;
+    }
 
-            /* Show canvas button on mobile */
-            .header-offfcanvas {
-              display: block;
-            }
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
 
-            /* Show toggle button indicator on mobile */
-            .header-nav .main-menu>ul>li.menu-item-has-children>a:after {
-              display: inline-block;
-            }
+    .header-cta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
 
-            /* Remove hover effects on mobile */
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .courses-dropdown,
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .after-12th-dropdown,
-            .header-nav .main-menu>ul>li.menu-item-has-children:hover .internship-dropdown {
-              display: none;
-            }
+@media (max-width: 576px) {
+    .header-cta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 
-            .courses-dropdown,
-            .after-12th-dropdown,
-            .internship-dropdown {
-              position: static;
-              min-width: auto;
-              width: 100%;
-              padding: 20px;
-            }
+/* Mobile menu adjustments */
+.header-nav .main-menu>ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
-            .courses-grid {
-              grid-template-columns: 1fr;
-            }
+@media (max-width: 992px) {
+    .header-nav .main-menu>ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+    }
 
-            .book-now-btn {
-              padding: 10px 20px;
-              font-size: 14px;
-            }
+    .header-nav .main-menu>ul>li {
+        width: 100%;
+    }
 
-            .header-cta {
-              display: flex;
-              align-items: center;
-              gap: 15px;
-            }
-          }
-
-          @media (max-width: 768px) {
-
-            .courses-dropdown,
-            .after-12th-dropdown,
-            .internship-dropdown {
-              position: static;
-              min-width: auto;
-              width: 100%;
-              padding: 20px;
-            }
-
-            .courses-grid {
-              grid-template-columns: 1fr;
-            }
-
-            .book-now-btn {
-              padding: 10px 20px;
-              font-size: 14px;
-            }
-
-            .header-cta {
-              display: flex;
-              align-items: center;
-              gap: 15px;
-            }
-          }
-
-          @media (max-width: 576px) {
-            .header-cta {
-              flex-direction: column;
-              gap: 10px;
-            }
-
-            .book-now-btn {
-              width: 100%;
-            }
-          }
-
-          /* Mobile menu adjustments */
-          .header-nav .main-menu>ul {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-          }
-
-          @media (max-width: 992px) {
-            .header-nav .main-menu>ul {
-              flex-direction: column;
-              align-items: flex-start;
-              display: none;
-            }
-
-            .header-nav .main-menu>ul>li {
-              width: 100%;
-            }
-
-            .courses-dropdown,
-            .after-12th-dropdown,
-            .internship-dropdown {
-              position: static;
-              box-shadow: none;
-              padding: 15px 0 15px 30px;
-            }
-          }
-
+    .courses-dropdown,
+    .after-12th-dropdown,
+    .internship-dropdown {
+        position: static;
+        box-shadow: none;
+        padding: 15px 0 15px 30px;
+    }
+}
 
           /* ---------- TOP BAR NEW DESIGN ---------- */
 

@@ -246,369 +246,130 @@
           </div>
         </div>
 
-        <script>
-          // JavaScript for dropdown functionality
-          document.addEventListener('DOMContentLoaded', function () {
-            const coursesTrigger = document.querySelector('.courses-trigger');
-            const coursesDropdown = document.querySelector('.courses-dropdown');
-            const after12thTrigger = document.querySelector('.after-12th-trigger');
-            const after12thDropdown = document.querySelector('.after-12th-dropdown');
-            const internshipTrigger = document.querySelector('.internship-trigger');
-            const internshipDropdown = document.querySelector('.internship-dropdown');
-
-            // Check if we're on mobile
-            const isMobile = window.innerWidth <= 992;
-
-            // Mobile click functionality
-            if (isMobile) {
-              // Courses dropdown functionality
-              if (coursesTrigger && coursesDropdown) {
-                coursesTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-
-                  // Toggle current dropdown
-                  coursesDropdown.classList.toggle('active');
-
-                  // Close other dropdowns
-                  after12thDropdown.classList.remove('active');
-                  internshipDropdown.classList.remove('active');
-                });
-              }
-
-              // After 12th dropdown functionality
-              if (after12thTrigger && after12thDropdown) {
-                after12thTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-
-                  // Toggle current dropdown
-                  after12thDropdown.classList.toggle('active');
-
-                  // Close other dropdowns
-                  coursesDropdown.classList.remove('active');
-                  internshipDropdown.classList.remove('active');
-                });
-              }
-
-              // Internship dropdown functionality
-              if (internshipTrigger && internshipDropdown) {
-                internshipTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-
-                  // Toggle current dropdown
-                  internshipDropdown.classList.toggle('active');
-
-                  // Close other dropdowns
-                  coursesDropdown.classList.remove('active');
-                  after12thDropdown.classList.remove('active');
-                });
-              }
-
-              // Close dropdowns when clicking outside on mobile
-              document.addEventListener('click', function (e) {
-                // Close courses dropdown
-                if (coursesTrigger && coursesDropdown &&
-                  !coursesTrigger.contains(e.target) &&
-                  !coursesDropdown.contains(e.target)) {
-                  coursesDropdown.classList.remove('active');
-                }
-
-                // Close after 12th dropdown
-                if (after12thTrigger && after12thDropdown &&
-                  !after12thTrigger.contains(e.target) &&
-                  !after12thDropdown.contains(e.target)) {
-                  after12thDropdown.classList.remove('active');
-                }
-
-                // Close internship dropdown
-                if (internshipTrigger && internshipDropdown &&
-                  !internshipTrigger.contains(e.target) &&
-                  !internshipDropdown.contains(e.target)) {
-                  internshipDropdown.classList.remove('active');
-                }
-              });
-
-              // Close dropdown on mobile when clicking a link
-              const closeDropdownOnMobile = function (dropdown) {
-                dropdown.addEventListener('click', function (e) {
-                  if (e.target.tagName === 'A') {
-                    this.classList.remove('active');
-                  }
-                });
-              };
-
-              if (coursesDropdown) closeDropdownOnMobile(coursesDropdown);
-              if (after12thDropdown) closeDropdownOnMobile(after12thDropdown);
-              if (internshipDropdown) closeDropdownOnMobile(internshipDropdown);
-            }
-
-            // For desktop: disable click functionality, rely on hover only
-            if (!isMobile) {
-              if (coursesTrigger) {
-                coursesTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  // No click action on desktop - hover only
-                });
-              }
-
-              if (after12thTrigger) {
-                after12thTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  // No click action on desktop - hover only
-                });
-              }
-
-              if (internshipTrigger) {
-                internshipTrigger.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  // No click action on desktop - hover only
-                });
-              }
-            }
-
-            // Handle window resize
-            window.addEventListener('resize', function () {
-              // Remove active classes on resize to prevent hover/click conflicts
-              if (coursesDropdown) coursesDropdown.classList.remove('active');
-              if (after12thDropdown) after12thDropdown.classList.remove('active');
-              if (internshipDropdown) internshipDropdown.classList.remove('active');
-            });
-
-            // Smooth scroll for all internal links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-              anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                  e.preventDefault();
-                  const target = document.querySelector(href);
-                  if (target) {
-                    target.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                }
-              });
-            });
-
-            // Book Now button animation
-            const bookNowBtn = document.querySelector('.book-now-btn');
-            if (bookNowBtn) {
-              bookNowBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                console.log('Book Now clicked');
-              });
-            }
-          });
-
-          // Add this to your existing JavaScript
-
-          // Enhanced Sidebar functionality
-          document.addEventListener('DOMContentLoaded', function () {
-            const sideToggle = document.querySelector('.side-toggle');
-            const sidebarOverlay = document.querySelector('.sidebar-overlay');
-            const sidebarPanel = document.querySelector('.sidebar-panel');
-            const sidebarClose = document.querySelector('.sidebar-close');
-            const body = document.body;
-
-            // Sidebar toggle triggers
-            const sidebarCoursesTrigger = document.querySelector('.sidebar-courses-trigger');
-            const sidebarAfter12thTrigger = document.querySelector('.sidebar-after12th-trigger');
-            const sidebarInternshipTrigger = document.querySelector('.sidebar-internship-trigger');
-            const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
-
-            // Open sidebar
-            if (sideToggle) {
-              sideToggle.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                openSidebar();
-              });
-            }
-
-            // Close sidebar
-            function closeSidebar() {
-              sidebarOverlay.classList.remove('active');
-              sidebarPanel.classList.remove('active');
-              body.classList.remove('sidebar-open');
-              sideToggle.classList.remove('active');
-
-              // Close all dropdowns when closing sidebar
-              sidebarDropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-                const trigger = dropdown.previousElementSibling;
-                if (trigger) trigger.classList.remove('active');
-              });
-            }
-
-            function openSidebar() {
-              sidebarOverlay.classList.add('active');
-              sidebarPanel.classList.add('active');
-              body.classList.add('sidebar-open');
-              sideToggle.classList.add('active');
-            }
-
-            // Close sidebar with close button
-            if (sidebarClose) {
-              sidebarClose.addEventListener('click', closeSidebar);
-            }
-
-            // Close sidebar with overlay click
-            if (sidebarOverlay) {
-              sidebarOverlay.addEventListener('click', closeSidebar);
-            }
-
-            // Prevent clicks inside panel from closing
-            if (sidebarPanel) {
-              sidebarPanel.addEventListener('click', function (e) {
-                e.stopPropagation();
-              });
-            }
-
-            // Enhanced dropdown functionality with animation
-            function setupDropdown(trigger) {
-              if (!trigger) return;
-
-              trigger.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const dropdown = this.nextElementSibling;
-                const isActive = dropdown.classList.contains('active');
-
-                // Close all other dropdowns
-                sidebarDropdowns.forEach(d => {
-                  if (d !== dropdown) {
-                    d.classList.remove('active');
-                    d.previousElementSibling.classList.remove('active');
-                  }
-                });
-
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
-                this.classList.toggle('active');
-
-                // Add ripple effect
-                addRippleEffect(e);
-              });
-            }
-
-            // Setup all dropdowns
-            setupDropdown(sidebarCoursesTrigger);
-            setupDropdown(sidebarAfter12thTrigger);
-            setupDropdown(sidebarInternshipTrigger);
-
-            // Ripple effect function
-            function addRippleEffect(e) {
-              const btn = e.currentTarget;
-              const ripple = document.createElement('span');
-              const rect = btn.getBoundingClientRect();
-              const size = Math.max(rect.width, rect.height);
-              const x = e.clientX - rect.left - size / 2;
-              const y = e.clientY - rect.top - size / 2;
-
-              ripple.style.cssText = `
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(100, 33, 255, 0.2);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            width: ${size}px;
-            height: ${size}px;
-            left: ${x}px;
-            top: ${y}px;
-            pointer-events: none;
-        `;
-
-              btn.style.position = 'relative';
-              btn.style.overflow = 'hidden';
-              btn.appendChild(ripple);
-
-              setTimeout(() => {
-                ripple.remove();
-              }, 600);
-            }
-
-            // Add ripple effect style
-            const style = document.createElement('style');
-            style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+       <script>
+// JavaScript for dropdown functionality with click-to-toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const coursesTrigger = document.querySelector('.courses-trigger');
+    const coursesDropdown = document.querySelector('.courses-dropdown');
+    const after12thTrigger = document.querySelector('.after-12th-trigger');
+    const after12thDropdown = document.querySelector('.after-12th-dropdown');
+    const internshipTrigger = document.querySelector('.internship-trigger');
+    const internshipDropdown = document.querySelector('.internship-dropdown');
+    
+    // Track active dropdown
+    let activeDropdown = null;
+    
+    // Toggle dropdown function
+    function toggleDropdown(dropdown, trigger) {
+        if (dropdown === activeDropdown) {
+            // If clicking the same dropdown, close it
+            dropdown.classList.remove('active');
+            trigger.classList.remove('active');
+            activeDropdown = null;
+        } else {
+            // Close any open dropdown
+            closeAllDropdowns();
+            
+            // Open the clicked dropdown
+            dropdown.classList.add('active');
+            trigger.classList.add('active');
+            activeDropdown = dropdown;
         }
-    `;
-            document.head.appendChild(style);
-
-            // Close sidebar when clicking a link (except dropdown triggers)
-            document.querySelectorAll('.sidebar-menu a').forEach(link => {
-              if (!link.classList.contains('sidebar-courses-trigger') &&
-                !link.classList.contains('sidebar-after12th-trigger') &&
-                !link.classList.contains('sidebar-internship-trigger')) {
-                link.addEventListener('click', function () {
-                  setTimeout(closeSidebar, 300);
-                });
-              }
-            });
-
-            // Keyboard support
-            document.addEventListener('keydown', function (e) {
-              if (e.key === 'Escape' && sidebarPanel.classList.contains('active')) {
-                closeSidebar();
-              }
-            });
-
-            // Close sidebar on window resize (if needed)
-            window.addEventListener('resize', function () {
-              if (window.innerWidth > 992 && sidebarPanel.classList.contains('active')) {
-                closeSidebar();
-              }
-            });
-
-            // Book Now buttons functionality
-            const bookNowBtn = document.querySelector('.book-now-btn');
-            const sidebarBookBtn = document.querySelector('.sidebar-book-btn');
-
-            [bookNowBtn, sidebarBookBtn].forEach(btn => {
-              if (btn) {
-                btn.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  // Add your booking logic here
-                  console.log('Book Now clicked');
-
-                  // Close sidebar if open
-                  if (sidebarPanel.classList.contains('active')) {
-                    closeSidebar();
-                  }
-                });
-              }
-            });
-
-            // Enhanced sidebar animations
-            function addSidebarAnimations() {
-              const sidebarLinks = document.querySelectorAll('.sidebar-menu > ul > li > a');
-              sidebarLinks.forEach((link, index) => {
-                link.style.animationDelay = `${index * 0.05}s`;
-                link.style.opacity = '0';
-                link.style.transform = 'translateX(-20px)';
-
-                setTimeout(() => {
-                  link.style.transition = 'all 0.4s ease';
-                  link.style.opacity = '1';
-                  link.style.transform = 'translateX(0)';
-                }, 50);
-              });
+    }
+    
+    // Close all dropdowns
+    function closeAllDropdowns() {
+        [coursesDropdown, after12thDropdown, internshipDropdown].forEach(dropdown => {
+            if (dropdown) {
+                dropdown.classList.remove('active');
+                dropdown.classList.remove('active');
             }
-
-            // Initialize animations when sidebar opens
-            sidebarPanel.addEventListener('transitionend', function (e) {
-              if (e.propertyName === 'right' && this.classList.contains('active')) {
-                addSidebarAnimations();
-              }
-            });
-          });
-        </script>
+        });
+        
+        [coursesTrigger, after12thTrigger, internshipTrigger].forEach(trigger => {
+            if (trigger) {
+                trigger.classList.remove('active');
+            }
+        });
+        
+        activeDropdown = null;
+    }
+    
+    // Click event for courses dropdown
+    if (coursesTrigger && coursesDropdown) {
+        coursesTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDropdown(coursesDropdown, coursesTrigger);
+        });
+    }
+    
+    // Click event for after 12th dropdown
+    if (after12thTrigger && after12thDropdown) {
+        after12thTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDropdown(after12thDropdown, after12thTrigger);
+        });
+    }
+    
+    // Click event for internship dropdown
+    if (internshipTrigger && internshipDropdown) {
+        internshipTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDropdown(internshipDropdown, internshipTrigger);
+        });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+        // Check if click is inside any dropdown or trigger
+        const isClickInsideDropdown = 
+            (coursesDropdown && coursesDropdown.contains(e.target)) ||
+            (after12thDropdown && after12thDropdown.contains(e.target)) ||
+            (internshipDropdown && internshipDropdown.contains(e.target));
+            
+        const isClickOnTrigger = 
+            (coursesTrigger && coursesTrigger.contains(e.target)) ||
+            (after12thTrigger && after12thTrigger.contains(e.target)) ||
+            (internshipTrigger && internshipTrigger.contains(e.target));
+        
+        // If click is outside dropdown and not on trigger, close all dropdowns
+        if (!isClickInsideDropdown && !isClickOnTrigger) {
+            closeAllDropdowns();
+        }
+    });
+    
+    // Close dropdown when pressing Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && activeDropdown) {
+            closeAllDropdowns();
+        }
+    });
+    
+    // Handle window resize - maintain dropdown state
+    window.addEventListener('resize', function () {
+        // Only reset if switching between mobile/desktop
+        const isMobile = window.innerWidth <= 992;
+        const wasMobile = !coursesTrigger || coursesTrigger.classList.contains('mobile-mode');
+        
+        if (isMobile !== wasMobile) {
+            // Update trigger mode class
+            if (coursesTrigger) {
+                coursesTrigger.classList.toggle('mobile-mode', isMobile);
+            }
+            
+            // Close all dropdowns on mode change
+            closeAllDropdowns();
+        }
+    });
+    
+    // Initialize mode detection
+    const isMobile = window.innerWidth <= 992;
+    if (coursesTrigger) {
+        coursesTrigger.classList.toggle('mobile-mode', isMobile);
+    }
+});
+</script>
       </header>
