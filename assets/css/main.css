@@ -21402,7 +21402,7 @@ only screen and (min-width: 992px) and (max-width: 1199px),
 .it-course-details-style-2 .it-course-sidebar-wrap {
     position: sticky;
     z-index: 9;
-    top: 120px;
+    top: 50px;
 }
 
 .it-course-details-nav-box {
